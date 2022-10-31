@@ -1,12 +1,11 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, Ref } from "react";
 
 interface AboutProps {
-    
 }
  
 const About: FunctionComponent<AboutProps> = () => {
     
-    return ( <div id="about" className="w-screen h-screen scroll-smooth"></div> );
+    return ( <div id="about" className="observe w-screen h-screen scroll-smooth"></div> );
 }
  
 export default About;

@@ -1,0 +1,49 @@
+.carousel {
+  height: 80%;
+  width: 80%;
+  position: relative;
+}
+.card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  background-color: transparent;
+
+  opacity: 0.4;
+  backdrop-filter: blur(300px);
+  transition: all 500ms;
+  color: white;
+  border: 2px solid rgb(34 211 238);
+  border-radius: 10px;
+
+  cursor: pointer;
+  user-select: none;
+}
+.cardActive {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 99;
+}
+.cardLeft {
+  transform: translateX(-125%) scale(0.7);
+  transition: all 500ms;
+  opacity: 0.1;
+}
+
+.cardRight {
+  transform: translate(125%) scale(0.7);
+  transition: all 500ms;
+  opacity: 0.1;
+}
