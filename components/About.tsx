@@ -35,7 +35,7 @@ const About: FunctionComponent<AboutProps> = () => {
         <div className="w-4/5 relative flex flex-col justify-center items-center z-10 gap-4">
           <h2 className="text-7xl">About me</h2>
           <p className="text-3xl text-center">
-            I'm a 21 year old <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-400">Computer Science and Engineering</span> student from
+            I&apos;m a 21 year old <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-400">Computer Science and Engineering</span> student from
             Sarajevo. I have a passion for creating things and an interest in 
             <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-400"> Full-Stack Development</span> and <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-400">AI</span>. 
           </p>
