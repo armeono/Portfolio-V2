@@ -37,8 +37,6 @@ export default function Home() {
   const codeBlockStyle = { 
     fontSize: "21px",
     border: "none",
-    overflowX: "hidden",
-    userSelect: "none",
     borderRadius: "5px",
     boxShadow: "0 20px 30px #22d3ee",
   }
