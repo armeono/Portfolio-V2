@@ -25,7 +25,7 @@ const NavItem: FunctionComponent<NavItemProps> = ({ name, link }) => {
       </Link>
       <div
         className={` bg-cyan-800 h-4 ${
-          linkHovered ? "w-20" : `w-4`
+          linkHovered ? "w-32" : `w-4`
         } transition-all ease-in-out duration-200`}
       ></div>
     </div>

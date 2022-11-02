@@ -1,18 +1,17 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import NavItem from "../components/NavItem";
-import CodeImage from "../public/code.png";
 import About from "../components/About";
 import Projects from "../components/Projects";
-import { useEffect, useState, useRef} from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
+import { codeText } from "../codeText";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import  {dracula}  from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 export default function Home() {
   const [activeRoute, setActiveRoute] = useState("");
-
-  const aboutRef = useRef();
 
   const router = useRouter();
 
@@ -34,6 +33,15 @@ export default function Home() {
       link: "#contact",
     },
   ];
+
+  const codeBlockStyle = { 
+    fontSize: "21px",
+    border: "none",
+    overflowX: "hidden",
+    userSelect: "none",
+    borderRadius: "5px",
+    boxShadow: "0 20px 30px #22d3ee",
+  }
 
   useEffect(() => {
     setActiveRoute(router.asPath);
@@ -63,22 +71,23 @@ export default function Home() {
       <div className="flex justify-between items-center h-screen w-screen bg-opacity-0 backdrop-blur-3xl p-10">
         <div className="w-1/2 flex flex-col justify-center items-start gap-3 text-3xl">
           <div className="flex flex-col justify-center items-start gap-4">
-            {listOfLinks.map((link, index: number) => (
+            {listOfLinks.map((link, index: number) => ( 
               <NavItem name={link.name} link={link.link} key={index} />
             ))}
           </div>
         </div>
         <div className="w-1/2 flex flex-row justify-center items-center">
           <div className={styles.img}>
-            <Image
-              src={CodeImage}
-              alt=""
-              className="h-full w-full shadow-xl shadow-cyan-400 hover:shadow-cyan-600 border-none rounded-md transition-all ease-linear duration-500"
-            />
+            <SyntaxHighlighter
+              language="jsx"
+              showLineNumbers
+              style={dracula}
+              customStyle={codeBlockStyle}
+            >{codeText}</SyntaxHighlighter>
           </div>
         </div>
       </div>
-      <About ></About>
+      <About></About>
       <Projects></Projects>
     </div>
   );
