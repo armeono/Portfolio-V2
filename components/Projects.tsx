@@ -19,6 +19,7 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
       description:
         "Real-time chat application build using Angular, Node.js and Socket.io",
       image: ChatImage,
+      url: 'https://github.com/armeono/Realtime-Chat-app'
     },
     {
       id: 2,
@@ -26,6 +27,7 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
       description:
         "E-Commerce application built using React (Typescript) and Node.js (Prisma, Express, Typescript)",
       image: Shopimage,
+      url: 'https://github.com/armeono/E-Commerce-app'
     },
     {
       id: 3,
@@ -33,6 +35,7 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
       description:
         "Library application built using Angular, Node.js and the Google Books API",
       image: LibraryImage,
+      url: 'https://github.com/armeono/Library-app'
     },
   ];
 
@@ -83,6 +86,7 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
               length={projects.length}
               index={i}
               currentIndex={index}
+              url={item.url}
             />
           );
         })}
