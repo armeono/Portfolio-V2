@@ -54,7 +54,7 @@ export default function Home() {
         }
       })
     }, {threshold: 0.8})
-    
+
     const observedElements = document.querySelectorAll('.observe')
     observedElements.forEach(element => elementRef.current.observe(element))
 
@@ -80,7 +80,7 @@ export default function Home() {
           ></div>
         ))}
       </div>
-      <div id="home" className="observe flex justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10">
+      <div id="home" className="observe flex flex-col md:flex-row justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10">
         <div className="w-1/2 flex flex-col justify-center items-start gap-3 text-3xl">
           <div className="flex flex-col justify-center items-start gap-4">
             {listOfLinks.map((link, index: number) => ( 
@@ -88,7 +88,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="w-1/2 flex flex-row justify-center items-center">
+        <div className="w-2/3 flex flex-row justify-center items-center">
           <div className={styles.img}>
             <SyntaxHighlighter
               language="jsx"

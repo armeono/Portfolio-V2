@@ -42,12 +42,12 @@ const Contact: FunctionComponent<ContactProps> = ({ className }) => {
       </p>
       <div className="w-full flex flex-row justify-center items-center gap-10">
         {icons.map((icon: any, index: number) => (
-          <Link href={icon.link} key={index}>
+          <Link href={icon.link} key={index} target="_blank">
             <Image
               src={icon.image}
               alt="social-media-icon"
               key={index}
-              className="relative z-2 ml-2 cursor-pointer hover:scale-110 transition-all duration-200"
+              className="relative z-2 ml-2 cursor-pointer hover:scale-110 transition-all duration-200 "
             />
           </Link>
         ))}
