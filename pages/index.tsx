@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { codeText } from "../codeText";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import  {dracula}  from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import Contact from "../components/Contact";
 
 export default function Home() {
   const [activeRoute, setActiveRoute] = useState("");
@@ -53,7 +54,7 @@ export default function Home() {
         }
       })
     }, {threshold: 0.8})
-
+    
     const observedElements = document.querySelectorAll('.observe')
     observedElements.forEach(element => elementRef.current.observe(element))
 
@@ -98,8 +99,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <About className="observe"></About>
-      <Projects className="observe"></Projects>
+      <About className="observe"/>
+      <Projects className="observe"/>
+      <Contact className="observe"/>
     </div>
   );
 }
