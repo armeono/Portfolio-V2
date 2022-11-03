@@ -8,17 +8,17 @@ import { useRouter } from "next/router";
 import { codeText } from "../codeText";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import  {dracula}  from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 export default function Home() {
   const [activeRoute, setActiveRoute] = useState("");
+  const elementRef = useRef<any>(null);
 
   const router = useRouter();
 
   const listOfLinks = [
     {
       name: "Home",
-      link: "",
+      link: "#home",
     },
     {
       name: "About",
@@ -40,9 +40,23 @@ export default function Home() {
     borderRadius: "5px",
     boxShadow: "0 20px 30px #22d3ee",
   }
-
+  
   useEffect(() => {
     setActiveRoute(router.asPath);
+  }, [router])
+  
+  useEffect(() => {
+    elementRef.current = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          setActiveRoute(`/#${entry.target.id}`)
+        }
+      })
+    }, {threshold: 0.8})
+
+    const observedElements = document.querySelectorAll('.observe')
+    observedElements.forEach(element => elementRef.current.observe(element))
+
   }, [router.asPath, activeRoute]);
 
   return (
@@ -53,10 +67,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        id="home"
-        className="fixed top-10 right-1/4 h-80 w-1/2 rotate-45 bg-gradient-to-r from-fuchsia-400 to-cyan-400 blur-2xl opacity-80"
+        className={`fixed top-10 right-1/4 h-80 w-1/2 rotate-45 bg-gradient-to-r from-fuchsia-400 to-cyan-400 blur-2xl opacity-80`}
       ></div>
-      <div className="fixed top-1/2 right-12 flex flex-col h-full gap-5 z-10 translate-y-[-5%]">
+      <div className="fixed top-1/2 right-12 flex flex-col h-screen gap-5 z-10 translate-y-[-5%]">
         {listOfLinks.map((item, index: number) => (
           <div
             key={index}
@@ -66,7 +79,7 @@ export default function Home() {
           ></div>
         ))}
       </div>
-      <div className="flex justify-between items-center h-screen w-screen bg-opacity-0 backdrop-blur-3xl p-10">
+      <div id="home" className="observe flex justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10">
         <div className="w-1/2 flex flex-col justify-center items-start gap-3 text-3xl">
           <div className="flex flex-col justify-center items-start gap-4">
             {listOfLinks.map((link, index: number) => ( 
@@ -85,8 +98,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <About></About>
-      <Projects></Projects>
+      <About className="observe"></About>
+      <Projects className="observe"></Projects>
     </div>
   );
 }

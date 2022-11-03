@@ -31,6 +31,7 @@
   overflow: hidden;
   height: 384px;
   width: 384px;
+  top: -4px;
 }
 .image {
   position: absolute;

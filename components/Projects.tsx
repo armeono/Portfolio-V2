@@ -5,9 +5,11 @@ import ChatImage from "../public/chat.png";
 import LibraryImage from "../public/lib.png";
 import Shopimage from "../public/shop-photo.png";
 
-interface ProjectsProps {}
+interface ProjectsProps {
+  className: string
+}
 
-const Projects: FunctionComponent<ProjectsProps> = () => {
+const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
   const [index, setIndex] = useState<number>(1);
 
   const projects = [
@@ -51,7 +53,7 @@ const Projects: FunctionComponent<ProjectsProps> = () => {
   return (
     <div
       id="projects"
-      className="w-screen h-screen flex justify-center items-center"
+      className={`${className} w-full h-screen flex justify-center items-center`}
       onKeyDown={(e) => keyPressed(e)}
       tabIndex={-1}
     >

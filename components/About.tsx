@@ -4,9 +4,11 @@ import portfolioPic from "../public/portfoliopic.png";
 import styles from "../styles/About.module.css";
 import polygon from "../public/polygon.svg";
 
-interface AboutProps {}
+interface AboutProps {
+  className: string
+}
 
-const About: FunctionComponent<AboutProps> = () => {
+const About: FunctionComponent<AboutProps> = ({className}) => {
   const observer = useRef<any>(null);
   const hiddenElements = useRef<any>(null);
 
@@ -14,7 +16,6 @@ const About: FunctionComponent<AboutProps> = () => {
     observer.current = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log("istrue");
           entry.target.classList.add(styles.show);
         } else {
           entry.target.classList.remove(styles.show);
@@ -29,7 +30,8 @@ const About: FunctionComponent<AboutProps> = () => {
   return (
     <div
       id="about"
-      className="w-screen h-screen scroll-smooth flex flex-col justify-center items-center lg:flex-row"
+      className={`${className} w-full h-screen scroll-smooth flex flex-col justify-center items-center lg:flex-row`}
+      
     >
       <div className="relative w-1/2 h-[650px] flex justify-center items-center">
         <div className="relative w-[500px] h-full flex justify-center items-center 2xl:scale-150">
