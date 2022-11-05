@@ -10,10 +10,8 @@
   height: 400px;
   transform: perspective(2000px) rotateY(-15deg);
   transition: transform 1s ease-out 0s;
-  left: -120px;
+  left: -100px;
   font-size: 21px;
-
-
 }
 
 .img:hover {

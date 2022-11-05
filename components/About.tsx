@@ -59,7 +59,7 @@ const About: FunctionComponent<AboutProps> = ({className}) => {
         </div>
       </div>
 
-      <div className="w-1/2 h-fit">
+      <div className="w-1/2 h-1/2 flex flex-col justify-center items">
         <div className="w-4/5 relative flex flex-col justify-center items-center z-10 gap-4">
           <h2 className="text-7xl">About me</h2>
           <p className="text-3xl text-center">
