@@ -7,7 +7,7 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { codeText } from "../codeText";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import  {dracula}  from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import Contact from "../components/Contact";
 
 export default function Home() {
@@ -35,29 +35,31 @@ export default function Home() {
     },
   ];
 
-  const codeBlockStyle = { 
+  const codeBlockStyle = {
     fontSize: "21px",
     border: "none",
     borderRadius: "5px",
     boxShadow: "0 20px 30px #22d3ee",
-  }
-  
+  };
+
   useEffect(() => {
     setActiveRoute(router.asPath);
-  }, [router])
-  
+  }, [router]);
+
   useEffect(() => {
-    elementRef.current = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          setActiveRoute(`/#${entry.target.id}`)
-        }
-      })
-    }, {threshold: 0.8})
+    elementRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveRoute(`/#${entry.target.id}`);
+          }
+        });
+      },
+      { threshold: 0.8 }
+    );
 
-    const observedElements = document.querySelectorAll('.observe')
-    observedElements.forEach(element => elementRef.current.observe(element))
-
+    const observedElements = document.querySelectorAll(".observe");
+    observedElements.forEach((element) => elementRef.current.observe(element));
   }, [router.asPath, activeRoute]);
 
   return (
@@ -66,6 +68,12 @@ export default function Home() {
         <title>Arman Hadzigrahic</title>
         <meta name="description" content="Arman Hadzigrahic Portfolio" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="author" content="Arman Hadzigrahic" />
+        <meta
+          name="keyword"
+          content="Arman Hadzigrahic, Arman Hadzigrahic Portfolio, armeono, hadzigrahic"
+        />
       </Head>
       <div
         className={`fixed top-10 right-1/4 h-80 w-1/2 rotate-45 bg-gradient-to-r from-fuchsia-400 to-cyan-400 blur-2xl opacity-80`}
@@ -80,10 +88,13 @@ export default function Home() {
           ></div>
         ))}
       </div>
-      <div id="home" className="observe flex flex-col md:flex-row justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10">
+      <div
+        id="home"
+        className="observe flex flex-col md:flex-row justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10"
+      >
         <div className="w-1/2 flex flex-col justify-center items-start gap-3 text-3xl">
           <div className="flex flex-col justify-center items-start gap-4">
-            {listOfLinks.map((link, index: number) => ( 
+            {listOfLinks.map((link, index: number) => (
               <NavItem name={link.name} link={link.link} key={index} />
             ))}
           </div>
@@ -95,13 +106,15 @@ export default function Home() {
               showLineNumbers
               style={dracula}
               customStyle={codeBlockStyle}
-            >{codeText}</SyntaxHighlighter>
+            >
+              {codeText}
+            </SyntaxHighlighter>
           </div>
         </div>
       </div>
-      <About className="observe"/>
-      <Projects className="observe"/>
-      <Contact className="observe"/>
+      <About className="observe" />
+      <Projects className="observe" />
+      <Contact className="observe" />
     </div>
   );
 }
