@@ -125,7 +125,7 @@ export default function Home() {
 
       <div
         id="home"
-        className="observe flex flex-col md:flex-row justify-center md:justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10 bg-red-500"
+        className="observe flex flex-col md:flex-row justify-center md:justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10"
       >
         <div className="w-1/2 flex flex-col justify-center items-start gap-3 text-3xl">
           <div className="flex flex-col justify-center items-start gap-4">

@@ -18,7 +18,7 @@ const NavItem: FunctionComponent<NavItemProps> = ({ name, link }) => {
     >
       <Link
         href={link}
-        className="text-slate-400 hover:text-slate-100 cursor-pointer"
+        className="text-cyan-800 dark:text-slate-400  hover:text-cyan-600 dark:hover:text-slate-200 cursor-pointer"
         scroll={false}
       >
         {name}

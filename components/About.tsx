@@ -31,7 +31,6 @@ const About: FunctionComponent<AboutProps> = ({className}) => {
     <div
       id="about"
       className={`${className} w-full h-screen scroll-smooth flex flex-col justify-center items-center lg:flex-row text-cyan-900 dark:text-white`}
-      
     >
       <div className="relative w-1/2 h-[650px] flex justify-center items-center">
         <div className="relative w-[500px] h-full flex justify-center items-center 2xl:scale-150">
@@ -40,7 +39,7 @@ const About: FunctionComponent<AboutProps> = ({className}) => {
             style={{ clipPath: "polygon(25% 0%, 100% 0, 75% 100%, 0% 100%" }}
           ></div>
           <div
-            className={` ${styles.hide} hide absolute h-[300px] w-[300px] bg-gradient-to-t from-fuchsia-400 to-transparent top-[240px] right-[-30px] z-[-1]`}
+            className={`${styles.hide} hide absolute h-[300px] w-[300px] bg-gradient-to-t from-fuchsia-400 to-transparent top-[240px] right-[-30px] z-[-1]`}
             style={{ clipPath: "polygon(25% 0%, 100% 0, 75% 100%, 0% 100%" }}
           ></div>
           <Image
