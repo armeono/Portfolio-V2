@@ -52,14 +52,18 @@ const Project: FunctionComponent<ProjectProps> = ({
           otherContent ? "opacity-100" : "opacity-0"
         } items-center transition-all duration-500  px-10 gap-4`}
       >
-        <Image
-          src={image}
-          alt="project-image"
-          className="border-none rounded-md"
-        />
-        <Link href={url} target="_blank">
-          <Image src={GitIcon} alt="github-icon" />
-        </Link>
+        {otherContent && (
+          <>
+            <Image
+              src={image}
+              alt="project-image"
+              className="border-none rounded-md"
+            />
+            <Link href={url} target="_blank">
+              <Image src={GitIcon} alt="github-icon" />
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
