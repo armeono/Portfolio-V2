@@ -30,7 +30,7 @@ const About: FunctionComponent<AboutProps> = ({className}) => {
   return (
     <div
       id="about"
-      className={`${className} w-full h-screen scroll-smooth flex flex-col justify-center items-center lg:flex-row`}
+      className={`${className} w-full h-screen scroll-smooth flex flex-col justify-center items-center lg:flex-row text-cyan-900 dark:text-white`}
       
     >
       <div className="relative w-1/2 h-[650px] flex justify-center items-center">
