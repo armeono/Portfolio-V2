@@ -43,7 +43,7 @@
 .hide {
   opacity: 0;
   filter: blur(5px);
-  transform: translateX(-80%);
+  transform: translateX(-100%);
   transition: all 1000ms;
 }
 
