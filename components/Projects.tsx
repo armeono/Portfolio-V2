@@ -25,7 +25,7 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
       id: 2,
       name: "E-Commerce app",
       description:
-        "E-Commerce application built using React (Typescript) and Node.js (Prisma, Express, Typescript)",
+        "E-Commerce application built using React (Typescript) and Node.js (Prisma, Express, Planetscale)",
       image: Shopimage,
       url: 'https://github.com/armeono/E-Commerce-app'
     },
@@ -68,11 +68,11 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
           let className = "";
 
           if (i === index) {
-            className = `${styles.card} ${styles.cardActive}`;
+            className = `${styles.card} ${styles.cardActive} border border-cyan-800 dark:border-cyan-600`;
           } else if (i === indexRight) {
-            className = `${styles.card} ${styles.cardRight}`;
+            className = `${styles.card} ${styles.cardRight} border border-cyan-800 dark:border-cyan-600`;
           } else if (i === indexLeft) {
-            className = `${styles.card} ${styles.cardLeft}`;
+            className = `${styles.card} ${styles.cardLeft} border border-cyan-800 dark:border-cyan-600`;
           } else {
             className = `${styles.card}`;
           }
