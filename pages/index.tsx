@@ -9,6 +9,7 @@ import { codeText } from "../codeText";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import Contact from "../components/Contact";
+import Menu from "../components/Menu";
 
 export default function Home() {
   const [activeRoute, setActiveRoute] = useState("");
@@ -65,11 +66,12 @@ export default function Home() {
   }, [router.asPath, activeRoute]);
 
   const handleTheme = () => {
-    setIsLight(!isLight)
-  }
+    setIsLight(!isLight);
+  };
 
   return (
-    <div className={`${styles.container} ${!isLight && 'dark'} `}>
+    <div className={`${styles.container} ${!isLight && "dark"}`}>
+      <Menu/>
       <Head>
         <title>Arman Hadzigrahic</title>
         <meta name="description" content="Arman Hadzigrahic Portfolio" />
@@ -121,35 +123,33 @@ export default function Home() {
       </div>
 
       <div className="bg-white dark:bg-[#141921] w-full px-5 transition-all">
-
-
-      <div
-        id="home"
-        className="observe flex flex-col md:flex-row justify-center md:justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10"
-      >
-        <div className="w-1/2 flex flex-col justify-center items-start gap-3 text-3xl">
-          <div className="flex flex-col justify-center items-start gap-4">
-            {listOfLinks.map((link, index: number) => (
-              <NavItem name={link.name} link={link.link} key={index} />
-            ))}
+        <div
+          id="home"
+          className="observe flex flex-col md:flex-row justify-center md:justify-between items-center h-screen w-full bg-opacity-0 backdrop-blur-3xl p-10"
+        >
+          <div className="w-1/2 flex flex-col justify-center items-start gap-3 text-3xl">
+            <div className="flex flex-col justify-center items-start gap-4">
+              {listOfLinks.map((link, index: number) => (
+                <NavItem name={link.name} link={link.link} key={index} />
+              ))}
+            </div>
+          </div>
+          <div className="w-2/3 flex flex-row justify-center items-center">
+            <div className={styles.img}>
+              <SyntaxHighlighter
+                language="jsx"
+                showLineNumbers
+                style={dracula}
+                customStyle={codeBlockStyle}
+              >
+                {codeText}
+              </SyntaxHighlighter>
+            </div>
           </div>
         </div>
-        <div className="w-2/3 flex flex-row justify-center items-center">
-          <div className={styles.img}>
-            <SyntaxHighlighter
-              language="jsx"
-              showLineNumbers
-              style={dracula}
-              customStyle={codeBlockStyle}
-            >
-              {codeText}
-            </SyntaxHighlighter>
-          </div>
-        </div>
-      </div>
-      <About className="observe" />
-      <Projects className="observe" />
-      <Contact className="observe" />
+        <About className="observe" />
+        <Projects className="observe" />
+        <Contact className="observe" />
       </div>
     </div>
   );

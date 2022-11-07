@@ -1,25 +1,40 @@
 import Link from "next/link";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent, Dispatch } from "react";
 import { useState } from "react";
 
 interface NavItemProps {
   name: string;
   link: string;
+  notHidden?: boolean;
+  setIsOpen?: Dispatch<React.SetStateAction<any>>;
 }
 
-const NavItem: FunctionComponent<NavItemProps> = ({ name, link }) => {
+const NavItem: FunctionComponent<NavItemProps> = ({
+  name,
+  link,
+  notHidden,
+  setIsOpen,
+}) => {
   const [linkHovered, setLinkHovered] = useState(false);
 
   return (
     <div
-      className="flex flex-row justify-center items-center gap-4"
+      className={`${
+        !notHidden ? "hidden" : "flex flex-col"
+      } md:flex flex-row justify-center items-center ${
+        !notHidden ? "gap-4" : ""
+      } select-none`}
       onMouseEnter={() => setLinkHovered(true)}
       onMouseLeave={() => setLinkHovered(false)}
     >
       <Link
         href={link}
-        className="text-cyan-800 dark:text-slate-400  hover:text-cyan-600 dark:hover:text-slate-200 cursor-pointer"
+        className={`text-cyan-800 dark:text-slate-400  hover:text-cyan-600 dark:hover:text-slate-200 cursor-pointer ${notHidden && "text-white"}`}
         scroll={false}
+        onClick={() => {
+          setIsOpen && setIsOpen(false);
+          document.documentElement.style.overflowY = "scroll";
+        }}
       >
         {name}
       </Link>
