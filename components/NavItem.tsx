@@ -1,6 +1,7 @@
 import Link from "next/link";
-import React, { FunctionComponent, Dispatch } from "react";
+import React, { FunctionComponent, Dispatch, useRef, useEffect } from "react";
 import { useState } from "react";
+import styles from "../styles/Nav.module.css";
 
 interface NavItemProps {
   name: string;
@@ -29,7 +30,9 @@ const NavItem: FunctionComponent<NavItemProps> = ({
     >
       <Link
         href={link}
-        className={`text-cyan-800 dark:text-slate-400  hover:text-cyan-600 dark:hover:text-slate-200 cursor-pointer ${notHidden && "text-white"}`}
+        className={`text-cyan-800 dark:text-slate-400  hover:text-cyan-600 dark:hover:text-slate-200 cursor-pointer ${
+          notHidden && "text-white"
+        }`}
         scroll={false}
         onClick={() => {
           setIsOpen && setIsOpen(false);

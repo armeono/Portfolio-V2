@@ -2,7 +2,6 @@ import Image from "next/image";
 import { FunctionComponent, Ref, useEffect, useRef, useState } from "react";
 import portfolioPic from "../public/portfoliopic.png";
 import styles from "../styles/About.module.css";
-import polygon from "../public/polygon.svg";
 
 interface AboutProps {
   className: string;

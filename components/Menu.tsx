@@ -1,10 +1,14 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import NavItem from "./NavItem";
+import styles from "../styles/Nav.module.css";
 
 interface MenuProps {}
 
 const Menu: FunctionComponent<MenuProps> = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const observer = useRef<any>();
+  const hiddenElements= useRef<any>();
 
   const listOfLinks = [
     {
@@ -33,6 +37,26 @@ const Menu: FunctionComponent<MenuProps> = () => {
       document.documentElement.style.overflowY = "scroll";
     }
   };
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.show);
+        } else {
+          entry.target.classList.remove(styles.show);
+        }
+      });
+    });
+
+    hiddenElements.current = document.querySelectorAll(".hideLink");
+
+    if (hiddenElements) {
+      hiddenElements.current.forEach((el: any) => {
+        observer.current.observe(el);
+      });
+    }
+  }, [isOpen]);
 
   return (
     <div>
@@ -64,9 +88,15 @@ const Menu: FunctionComponent<MenuProps> = () => {
           </svg>
 
           <div className="w-full h-full flex flex-col justify-center items-center text-white text-3xl gap-6">
-          
             {listOfLinks.map((item, index: number) => (
-              <NavItem key={index} name={item.name} link={item.link} notHidden={true} setIsOpen={setIsOpen}/>
+              <div className={`${styles.hide} hideLink`} key={index}>
+                <NavItem
+                  name={item.name}
+                  link={item.link}
+                  notHidden={true}
+                  setIsOpen={setIsOpen}
+                />
+              </div>
             ))}
           </div>
         </div>
