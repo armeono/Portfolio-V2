@@ -60,7 +60,7 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
       onKeyDown={(e) => keyPressed(e)}
       tabIndex={-1}
     >
-      <div className={styles.carousel}>
+      <div className={`${styles.carousel} scale-50 md:scale-75 lg:scale-100`}>
         {projects.map((item: any, i: any) => {
           const indexLeft = mod(index - 1, projects.length);
           const indexRight = mod(index + 1, projects.length);

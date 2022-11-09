@@ -30,12 +30,11 @@ const About: FunctionComponent<AboutProps> = ({ className }) => {
   return (
     <div
       id="about"
-      className={`${className} w-full h-screen scroll-smooth flex flex-col justify-center items-center lg:flex-row text-cyan-900 dark:text-white`}
+      className={`${className} w-full h-screen scroll-smooth flex flex-col justify-center items-center lg:flex-row lg:gap-20 text-cyan-900 dark:text-white`}
     >
-      <div className="relative w-1/2 h-[650px] flex justify-center items-center">
+      <div className="relative w-full lg:w-1/3 h-[650px] flex justify-end md:justify-center lg:justify-center items-center scale-50 md:scale-100 lg:scale-100">
         <div
-          className="relative w-[500px] h-full flex justify-center items-center scale-110 2xl:scale-150 transition-transform"
-    
+          className="relative w-1/2 h-full flex justify-center items-center scale-110 2xl:scale-150 transition-transform"
         >
           <div
             className={`${styles.hide} hide absolute h-[300px] w-[300px] bg-cyan-400 top-[213px] right-0 z-8`}
@@ -85,20 +84,20 @@ const About: FunctionComponent<AboutProps> = ({ className }) => {
             />
           </svg>
 
-          <div className={`${styles.imageContainer} ${styles.hide} hide`}>
+          <div className={`absolute ${styles.imageContainer} ${styles.hide} hide h-[400px] w-[400px] overflow-hidden top-[113px] right-[75px] `}>
             <Image
               src={portfolioPic}
               alt="portfolio-pic"
-              className={`hide ${styles.image}`}
+              className={`hide absolute ${styles.image}`}
             />
           </div>
         </div>
       </div>
 
-      <div className={`w-1/2 h-1/2 flex flex-col justify-center items`}>
-        <div className="w-4/5 relative flex flex-col justify-center items-center z-10 gap-4">
-          <h2 className="text-7xl">About me</h2>
-          <p className="text-3xl text-center">
+      <div className={` w-4/5  lg:w-1/2 h-1/2 flex flex-col justify-center items`}>
+        <div className="w-full relative flex flex-col justify-center items-center z-10 gap-4">
+          <h2 className="text-6xl lg:text-7xl">About me</h2>
+          <p className=" text-2xl lg:text-3xl text-center">
             I&apos;m a 21 year old{" "}
             <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-400">
               Computer Science and Engineering

@@ -26,24 +26,14 @@
   right: -75px;
 }
 
-.imageContainer {
-  position: relative;
-  overflow: hidden;
-  height: 384px;
-  width: 384px;
-  top: -4px;
-}
 .image {
-  position: absolute;
   scale: 1.5;
-  z-index: 10;
-  right: 20px;
 }
 
 .hide {
   opacity: 0;
   filter: blur(5px);
-  transform: translateX(-100%);
+  transform: translateX(-80%);
   transition: all 1000ms;
 }
 
