@@ -56,10 +56,11 @@ const Projects: FunctionComponent<ProjectsProps> = ({className}) => {
   return (
     <div
       id="projects"
-      className={`${className} w-full h-screen flex justify-center items-center`}
+      className={`${className} w-full h-screen flex flex-col justify-center items-center`}
       onKeyDown={(e) => keyPressed(e)}
       tabIndex={-1}
     >
+      <h1 className="relative z-10 text-7xl text-cyan-800 dark:text-white pt-24">Projects</h1>
       <div className={`${styles.carousel} scale-50 md:scale-75 lg:scale-100`}>
         {projects.map((item: any, i: any) => {
           const indexLeft = mod(index - 1, projects.length);
